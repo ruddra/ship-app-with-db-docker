@@ -1,5 +1,5 @@
-Ship Container with Docker
---------------------------
+Ship Application with Database in Docker Container
+-------------------------------------------------
 
 In this repository, we are going to see how to implement docker images in such way that it will run database alongside the project. Here are the images:
 
