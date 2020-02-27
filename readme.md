@@ -10,6 +10,10 @@ In this repository, we are going to see how to implement docker images in such w
 5. [Java MySQL Docker](java-mysql-docker).
 6. [Java PostgreSQL Docker](java-postgres-docker).
 
+## Explanation
+
+https://ruddra.com/posts/docker-ship-database-with-container/
+
 ## Maintained By
 - [Arnab Kumar Shil](https://ruddra.com)
 
