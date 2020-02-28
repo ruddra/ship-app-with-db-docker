@@ -2,8 +2,12 @@ FROM mysql:8
 ENV MYSQL_ROOT_PASSWORD 'mypassword'
 
 RUN echo "*** install python dependencies ***" && \
-    apt-get update \
-    && apt-get install -y python3-pip python3-dev libmysqlclient-dev \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+    python3 python-dev python3-dev \
+    build-essential libssl-dev libffi-dev \
+    libxml2-dev libxslt1-dev zlib1g-dev \
+    python-pip python3-pip libmysqlclient-dev \
     && cd /usr/local/bin \
     && ln -s /usr/bin/python3 python \
     && pip3 install --upgrade pip
@@ -11,7 +15,8 @@ RUN echo "*** install python dependencies ***" && \
 # Install your dependencies here
 WORKDIR /src
 ADD ./src /src
-RUN pip install -r requirements.pip
+RUN echo "*** install project dependencies ***" && \
+    pip install -r requirements.pip
 
 RUN find -type d -name __pycache__ -prune -exec rm -rf {} \; && \
     rm -rf ~/.cache/pip 
